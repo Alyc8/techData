@@ -8,12 +8,11 @@ import java.sql.*;
 import java.util.ArrayList;
 import java.util.List;
 
-public class DAOProducto {
-    private DAOConexion conexion;
-
+public class DAOProducto extends DAOConexion {
+    
     public DAOProducto() {
-        conexion = new DAOConexion();
-        conexion.Conectar();
+        super();
+        Conectar();
     }
 
     
@@ -24,7 +23,7 @@ public class DAOProducto {
         String query =  "select * from Producto";
 
         try {
-            Statement stmt = conexion.con.createStatement();
+            Statement stmt = con.createStatement();
             ResultSet rs = stmt.executeQuery(query);
 
             while (rs.next()) {
@@ -56,7 +55,7 @@ public class DAOProducto {
         String query = "SELECT * FROM Producto WHERE Producto_ID = ?";
 
         try {
-            PreparedStatement pstmt = conexion.con.prepareStatement(query);
+            PreparedStatement pstmt = con.prepareStatement(query);
             pstmt.setString(1, productoId);
             ResultSet rs = pstmt.executeQuery();
 
@@ -85,7 +84,7 @@ public class DAOProducto {
     boolean resultado = false;
 
         try {
-            PreparedStatement pstmt = conexion.con.prepareStatement(query);
+            PreparedStatement pstmt = con.prepareStatement(query);
             pstmt.setString(1, productoId);
             int filasAfectadas = pstmt.executeUpdate();
 
@@ -108,7 +107,7 @@ public class DAOProducto {
         boolean resultado = false;
 
         try {
-            PreparedStatement pstmt = conexion.con.prepareStatement(query);
+            PreparedStatement pstmt = con.prepareStatement(query);
             pstmt.setString(1, producto.getProductoid());
             pstmt.setString(2, producto.getProveedorid());
             pstmt.setString(3, producto.getNombreProducto());
@@ -135,7 +134,7 @@ public class DAOProducto {
         boolean resultado = false;
 
         try {
-            PreparedStatement pstmt = conexion.con.prepareStatement(query);
+            PreparedStatement pstmt = con.prepareStatement(query);
             pstmt.setString(1, producto.getProveedorid());
             pstmt.setString(2, producto.getNombreProducto());
             pstmt.setString(3, producto.getDescripcion());
