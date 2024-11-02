@@ -1,5 +1,10 @@
 package gui;
 
+/**
+ *
+ * @author #RoaAlyc '^'
+ */
+
 import dao.DAOProducto;
 import dto.DTOProducto;
 import java.util.List;
