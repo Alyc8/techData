@@ -1,9 +1,16 @@
+package gui;
+
+/**
+ *
+ * @author #RoaAlyc '^'
+ */
+
 import dao.DAOProducto;
 import dto.DTOProducto;
 import java.util.List;
 import java.util.Scanner;
 
-public class Main {
+public class Principal {
     public static void main(String[] args) {
         DAOProducto daoProducto = new DAOProducto();
         Scanner sc = new Scanner(System.in);
