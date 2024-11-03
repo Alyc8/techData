@@ -4,13 +4,16 @@ package gui;
  *
  * @author #RoaAlyc '^'
  */
-
 import dao.DAOProducto;
 import dto.DTOProducto;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+
 import java.util.List;
 import java.util.Scanner;
 
 public class Principal {
+    private static final Logger logger = LoggerFactory.getLogger(Principal.class);
     public static void main(String[] args) {
         DAOProducto daoProducto = new DAOProducto();
         Scanner sc = new Scanner(System.in);
@@ -183,6 +186,7 @@ public class Principal {
                     break;
 
                 default:
+                    logger.warn("Opción no válida seleccionada: {}", opcion); // log de advertencia
                     System.out.println("Error. Vuelva a escoger la opción.");
                     break;
             }
