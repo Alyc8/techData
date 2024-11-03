@@ -26,6 +26,5 @@ public class DAOConexion {
         if (con.isClosed()==false) {
             con.close();
         }
-    }
-    
+    }   
 }

@@ -71,6 +71,8 @@ public class Principal {
                     
                     System.out.print("Inserte ID del proveedor: ");
                     String Proveedorid = sc.next();
+                    
+                    sc.nextLine();
 
                     System.out.print("Ingrese nombre del producto: ");
                     String NombreProducto = sc.nextLine();
@@ -83,6 +85,8 @@ public class Principal {
                     
                     System.out.print("Ingrese stock: ");
                     int Stock = sc.nextInt();
+                    
+                    sc.nextLine();
 
                     DTOProducto nuevoProducto = new DTOProducto(Productoid, Proveedorid, NombreProducto, Descripcion, PrecioU, Stock);
                     boolean creado = daoProducto.crearProducto(nuevoProducto);
@@ -120,6 +124,8 @@ public class Principal {
                         if (Proveedorid.isEmpty()) {
                             Proveedorid = productoExistente.getProveedorid();
                         }
+                        
+                        sc.nextLine();
 
                         System.out.print("(Dejar en blanco para no modificar)\n");
                         System.out.print("Ingrese nuevo nombre del producto: ");
@@ -141,7 +147,7 @@ public class Principal {
                         PrecioU = inputPrecioU.isEmpty() ? productoExistente.getPrecioU() : Float.parseFloat(inputPrecioU);
 
                         System.out.print("(Dejar en blanco para no modificar)\n");
-                        System.out.print("Ingrese nuevo stock (dejar en blanco para no modificar): ");
+                        System.out.print("Ingrese nuevo stock: ");
                         String inputStock = sc.nextLine();
                         Stock = inputStock.isEmpty() ? productoExistente.getStock() : Integer.parseInt(inputStock);
 
